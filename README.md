@@ -1,19 +1,12 @@
 Spring Boot Admin
 ========================
-Yet another implementation of containerized [spring-boot-admin](https://github.com/codecentric/spring-boot-admin)
-
-Docker Image
-------------
-[![Build Status](https://travis-ci.org/slydeveloper/spring-boot-admin-docker.svg?branch=master)](https://travis-ci.org/slydeveloper/spring-boot-admin-docker)<br />
-[![](https://images.microbadger.com/badges/image/slydeveloper/spring-boot-admin.svg)](https://microbadger.com/images/slydeveloper/spring-boot-admin "Get your own image badge on microbadger.com")<br />
-[![](https://images.microbadger.com/badges/version/slydeveloper/spring-boot-admin.svg)](https://microbadger.com/images/slydeveloper/spring-boot-admin "Get your own version badge on microbadger.com")<br />
-[![Docker Pulls](https://shields.beevelop.com/docker/pulls/slydeveloper/spring-boot-admin.svg)](https://hub.docker.com/r/slydeveloper/spring-boot-admin/)
+Yet another implementation of containerized [spring-boot-admin](https://github.com/fo0/spring-boot-admin)
 
 Info
 ----
 - Name: `slydeveloper/spring-boot-admin`
 - Version: `latest`,`1.2`,`1.1`,`1.0`
-- [Docker Hub](https://hub.docker.com/r/slydeveloper/spring-boot-admin/)
+- [Docker Hub](https://hub.docker.com/r/fo0me/spring-boot-admin/)
 
 Details
 --------
@@ -28,7 +21,7 @@ Details
 
 Usage
 --------
-`docker run -d -p 1111:1111 --name spring-boot-admin slydeveloper/spring-boot-admin:latest`
+`docker run -d -p 1111:1111 --name spring-boot-admin fo0me/spring-boot-admin:latest`
 
 Configuration via environment variables 
 ---------------------------------------
@@ -42,8 +35,8 @@ Configuration via environment variables
     * disable login form (default : `true`)
 
 ##### Examples
-* `docker run -d -p 1111:1111 -e SPRING_BOOT_ADMIN_TITLE='SB Admin' -e SPRING_BOOT_ADMIN_SECURITY_ENABLED=false --name spring-boot-admin slydeveloper/spring-boot-admin:latest`
-* `docker run -d -p 1111:1111 -e SPRING_BOOT_ADMIN_USER_NAME=user -e SPRING_BOOT_ADMIN_USER_PASSWORD='password' --name spring-boot-admin slydeveloper/spring-boot-admin:latest`
+* `docker run -d -p 1111:1111 -e SPRING_BOOT_ADMIN_TITLE='SB Admin' -e SPRING_BOOT_ADMIN_SECURITY_ENABLED=false --name spring-boot-admin fo0me/spring-boot-admin:latest`
+* `docker run -d -p 1111:1111 -e SPRING_BOOT_ADMIN_USER_NAME=user -e SPRING_BOOT_ADMIN_USER_PASSWORD='password' --name spring-boot-admin fo0me/spring-boot-admin:latest`
 
 Configuration via properties file
 ---------------------------------
@@ -68,7 +61,7 @@ spring.boot.admin.security.enabled=false
 ```
 
 Example command:
-- `docker run -d -p 2222:2222 -v "$(pwd)"/application-docker.properties:/opt/spring-boot-admin-docker/application-docker.properties --name spring-boot-admin slydeveloper/spring-boot-admin:latest`
+- `docker run -d -p 2222:2222 -v "$(pwd)"/application-docker.properties:/opt/spring-boot-admin-docker/application-docker.properties --name spring-boot-admin fo0me/spring-boot-admin:latest`
 
 Docker-Compose example
 ----------------------
@@ -87,7 +80,7 @@ services:
           condition: service_healthy
     container_name: spring_boot_admin_example
   admin:
-    image: slydeveloper/spring-boot-admin
+    image: fo0me/spring-boot-admin
     environment:
       - SPRING_BOOT_ADMIN_TITLE=Custom Spring Boot Admin title
     volumes:

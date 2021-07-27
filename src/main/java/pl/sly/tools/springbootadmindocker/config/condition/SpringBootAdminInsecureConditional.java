@@ -10,15 +10,17 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  */
 public class SpringBootAdminInsecureConditional implements Condition {
 
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        Environment environment = conditionContext.getEnvironment();
+  @Override
+  public boolean matches(ConditionContext conditionContext,
+                         AnnotatedTypeMetadata annotatedTypeMetadata) {
+    Environment environment = conditionContext.getEnvironment();
 
-        if (environment != null && Boolean.FALSE.toString().equalsIgnoreCase(
-                environment.getProperty(Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
-            return true;
-        }
-
-        return false;
+    if (environment != null && Boolean.FALSE.toString()
+                                            .equalsIgnoreCase(
+                                                environment.getProperty(Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
+      return true;
     }
+
+    return false;
+  }
 }

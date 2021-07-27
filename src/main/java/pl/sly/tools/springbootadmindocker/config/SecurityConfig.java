@@ -13,39 +13,42 @@ import pl.sly.tools.springbootadmindocker.config.condition.SpringBootAdminSecure
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String REDIRECT_TO = "redirectTo";
-    private static final String ASSETS = "/assets/**";
-    private static final String LOGIN = "/login";
-    private static final String LOGOUT = "/logout";
-    private final String adminContextPath;
+  private static final String REDIRECT_TO = "redirectTo";
+  private static final String ASSETS = "/assets/**";
+  private static final String LOGIN = "/login";
+  private static final String LOGOUT = "/logout";
+  private final String adminContextPath;
 
-    public SecurityConfig(AdminServerProperties adminServerProperties) {
-        this.adminContextPath = adminServerProperties.getContextPath();
-    }
+  public SecurityConfig(AdminServerProperties adminServerProperties) {
+    this.adminContextPath = adminServerProperties.getContextPath();
+  }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        SavedRequestAwareAuthenticationSuccessHandler successHandler
-                = new SavedRequestAwareAuthenticationSuccessHandler();
-        successHandler.setTargetUrlParameter(REDIRECT_TO);
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    SavedRequestAwareAuthenticationSuccessHandler successHandler
+        = new SavedRequestAwareAuthenticationSuccessHandler();
+    successHandler.setTargetUrlParameter(REDIRECT_TO);
 
-        http
-                .authorizeRequests()
-                    .antMatchers(adminContextPath + ASSETS).permitAll()
-                    .antMatchers(adminContextPath + LOGIN).permitAll()
-                    .requestMatchers(EndpointRequest.toAnyEndpoint()).permitAll()
-                    .anyRequest().authenticated()
-                .and()
-                    .formLogin()
-                    .loginPage(adminContextPath + LOGIN)
-                    .successHandler(successHandler)
-                .and()
-                    .logout()
-                    .logoutUrl(adminContextPath + LOGOUT)
-                .and()
-                    .httpBasic()
-                .and()
-                    .csrf()
-                    .disable();
-    }
+    http.authorizeRequests()
+        .antMatchers(adminContextPath + ASSETS)
+        .permitAll()
+        .antMatchers(adminContextPath + LOGIN)
+        .permitAll()
+        .requestMatchers(EndpointRequest.toAnyEndpoint())
+        .permitAll()
+        .anyRequest()
+        .authenticated()
+        .and()
+        .formLogin()
+        .loginPage(adminContextPath + LOGIN)
+        .successHandler(successHandler)
+        .and()
+        .logout()
+        .logoutUrl(adminContextPath + LOGOUT)
+        .and()
+        .httpBasic()
+        .and()
+        .csrf()
+        .disable();
+  }
 }
