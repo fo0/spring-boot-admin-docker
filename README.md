@@ -1,18 +1,20 @@
 Spring Boot Admin
 ========================
+This is a forked an upgraded version of `slydeveloper/spring-boot-admin`
+
 Yet another implementation of containerized [spring-boot-admin](https://github.com/fo0/spring-boot-admin)
 
 Info
 ----
-- Name: `slydeveloper/spring-boot-admin`
-- Version: `latest`,`1.2`,`1.1`,`1.0`
+- Name: `fo0me/spring-boot-admin`
+- Version: `latest`
 - [Docker Hub](https://hub.docker.com/r/fo0me/spring-boot-admin/)
 
 Details
 --------
-- Image based on `java:8-jre-alpine`
-- Spring Boot Admin version: `2.2.2`
-- Spring Boot version: `2.2.6.RELEASE`
+- Image based on `adoptopenjdk/openjdk11:alpine-slim`
+- Spring Boot Admin version: check pom
+- Spring Boot version: check pom
 - Default port: `1111`
 - Default user: `admin`
 - Default password: `secret`
@@ -65,10 +67,10 @@ Example command:
 
 Docker-Compose example
 ----------------------
-Health check usage of `slydeveloper/spring-boot-admin` with Docker-Compose.
-Full working Spring Boot Admin client [here](https://github.com/slydeveloper/spring-boot-admin-example).
+Health check usage of `fo0me/spring-boot-admin` with Docker-Compose.
+Full working Spring Boot Admin client [here](https://github.com/fo0me/spring-boot-admin-example).
 ```
-version: '2.1'
+version: 3
 
 services:
   example:
