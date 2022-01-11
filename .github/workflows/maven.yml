@@ -29,6 +29,7 @@ jobs:
         with:
           image: spring-boot-admin
           tags: ${{steps.date.outputs.date}}, latest
+          registry: docker.io
           directory: .
           dockerfile: Dockerfile
           username: ${ DOCKER_ACTOR }
