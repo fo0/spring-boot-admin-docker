@@ -1,6 +1,7 @@
 Spring Boot Admin
 ========================
 This is a forked an upgraded version of `slydeveloper/spring-boot-admin`
+
 Yet another implementation of containerized [spring-boot-admin](https://github.com/fo0/spring-boot-admin)
 
 Info
