@@ -11,7 +11,8 @@ LABEL org.label-schema.vendor="fo0"
 LABEL org.label-schema.docker.cmd="docker run -d -p 1111:1111 --name spring-boot-admin fo0me/spring-boot-admin"
 
 RUN apk add --no-cache curl
-COPY --from=build-stage /tmp/target/*.jar /opt/spring-boot-admin-docker/app.jar
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} /opt/spring-boot-admin-docker/app.jar
 WORKDIR /opt/spring-boot-admin-docker
 EXPOSE 1111
 
