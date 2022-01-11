@@ -1,12 +1,3 @@
-# build stage
-FROM maven:3-openjdk-11 AS build-stage
-LABEL maintainer="fo0@fo0me"
-
-COPY pom.xml /tmp/
-COPY src /tmp/src/
-WORKDIR /tmp/
-RUN mvn clean package
-
 # run stage
 FROM adoptopenjdk/openjdk11:alpine-slim
 LABEL maintainer="fo0@fo0me"
