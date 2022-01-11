@@ -1,0 +1,36 @@
+name: Build-Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Publish binaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+        # test: echo ${{ steps.date.outputs.date }}
+      - name: create version
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')"
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Build
+        run: mvn -B package --no-transfer-progress -DskipTests
+
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build & push Docker image
+        with:
+          image: fo0me/spring-boot-admin
+          tags: ${{steps.date.outputs.date}}, latest
+          registry: docker.io
+          directory: .
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_ACTOR }}
+          password: ${{ secrets.DOCKER_TOKEN }}
