@@ -32,5 +32,5 @@ jobs:
           registry: docker.io
           directory: .
           dockerfile: Dockerfile
-          username: ${ DOCKER_ACTOR }
-          password: ${ DOCKER_TOKEN }
+          username: ${{ secrets.DOCKER_ACTOR }}
+          password: ${{ secrets.DOCKER_TOKEN }}
