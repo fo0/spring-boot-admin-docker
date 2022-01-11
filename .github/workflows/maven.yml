@@ -31,5 +31,5 @@ jobs:
           tags: ${{steps.date.outputs.date}}, latest
           directory: .
           dockerfile: Dockerfile
-          username: ${{ DOCKER_ACTOR }}
-          password: ${{ DOCKER_TOKEN }}
+          username: ${ DOCKER_ACTOR }
+          password: ${ DOCKER_TOKEN }
