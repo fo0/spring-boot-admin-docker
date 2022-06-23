@@ -25,8 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    SavedRequestAwareAuthenticationSuccessHandler successHandler
-        = new SavedRequestAwareAuthenticationSuccessHandler();
+    SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
     successHandler.setTargetUrlParameter(REDIRECT_TO);
 
     http.authorizeRequests()

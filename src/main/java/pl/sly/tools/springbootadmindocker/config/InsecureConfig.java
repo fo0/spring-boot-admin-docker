@@ -19,4 +19,5 @@ public class InsecureConfig extends WebSecurityConfigurerAdapter {
         .csrf()
         .disable();
   }
+
 }

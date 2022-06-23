@@ -1,5 +1,7 @@
 package pl.sly.tools.springbootadmindocker.config.condition;
 
+import static pl.sly.tools.springbootadmindocker.config.condition.Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED;
+
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;
@@ -15,9 +17,8 @@ public class SpringBootAdminInsecureConditional implements Condition {
                          AnnotatedTypeMetadata annotatedTypeMetadata) {
     Environment environment = conditionContext.getEnvironment();
 
-    if (environment != null && Boolean.FALSE.toString()
-                                            .equalsIgnoreCase(
-                                                environment.getProperty(Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
+    if (Boolean.FALSE.toString()
+                     .equalsIgnoreCase(environment.getProperty(SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
       return true;
     }
 
