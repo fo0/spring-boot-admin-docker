@@ -1,5 +1,5 @@
 # run stage
-FROM adoptopenjdk/openjdk11:alpine-slim
+FROM eclipse-temurin:17-jre-alpine
 LABEL maintainer="fo0@fo0me"
 
 LABEL org.label-schema.schema-version="1.0"
