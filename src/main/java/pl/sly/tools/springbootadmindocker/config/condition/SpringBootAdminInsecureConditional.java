@@ -1,5 +1,6 @@
 package pl.sly.tools.springbootadmindocker.config.condition;
 
+import static java.lang.Boolean.FALSE;
 import static pl.sly.tools.springbootadmindocker.config.condition.Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED;
 
 import org.springframework.context.annotation.Condition;
@@ -16,12 +17,7 @@ public class SpringBootAdminInsecureConditional implements Condition {
   public boolean matches(ConditionContext conditionContext,
                          AnnotatedTypeMetadata annotatedTypeMetadata) {
     Environment environment = conditionContext.getEnvironment();
-
-    if (Boolean.FALSE.toString()
-                     .equalsIgnoreCase(environment.getProperty(SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
-      return true;
-    }
-
-    return false;
+    return FALSE.toString()
+                .equalsIgnoreCase(environment.getProperty(SPRING_BOOT_ADMIN_SECURITY_ENABLED));
   }
 }
