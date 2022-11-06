@@ -6,7 +6,7 @@ Info
 - Name: `fo0me/spring-boot-admin`
 - Version: `latest`
 - Fork of `slydeveloper/spring-boot-admin`
-- [Docker Hub](https://hub.docker.com/r/fo0me/spring-boot-admin/)
+- Docker Hub: [fo0me/spring-boot-admin/](https://hub.docker.com/r/fo0me/spring-boot-admin/)
 
 Details
 --------
